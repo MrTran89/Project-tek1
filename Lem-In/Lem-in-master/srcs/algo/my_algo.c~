@@ -1,0 +1,27 @@
+/*
+** my_algo.c for my_algo in /home/tran_2/rendu/Lem-In/Lem-in-master/srcs
+** 
+** Created by tran_2
+** Login   <@epitech.eu>
+** 
+** Started on  Fri Apr 18 11:19:59 2014 tran_2
+** Last update Tue Apr 22 15:34:07 2014 tran_2
+*/
+
+#include "main.h"
+
+int		my_form(t_room *r)
+{
+  unsigned int	d;
+  
+  r = malloc(sizeof(t_room));
+  d = sqrt(((r->x - r->x->next) * (r->x + r->x->next)) + 
+	   ((r->y - r->y->next) * (r->y - r->y->next)));
+  return (d);
+}
+
+int		my_algo(t_room *s)
+{
+  
+}
+

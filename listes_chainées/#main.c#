@@ -1,0 +1,72 @@
+/*
+** main.c for list in 
+** 
+** Created by tran_2
+** Login   <@epitech.eu>
+** 
+** Started on  Thu Apr 17 11:16:52 2014 tran_2
+** Last update Thu Apr 17 15:10:20 2014 tran_2
+*/
+
+#include "list.h"
+
+void	my_putchar(char c)
+{
+  write(1, &c, 1);
+}
+
+void	my_putstr(char *str)
+{
+  int	i;
+
+  i = 0;
+  while (str[i])
+    {
+      my_putchar(str[i]);
+      i++;
+    }
+}
+
+void		add_elem_to_list(char *arg, t_list **my_list)
+{
+  t_list	*tmp;
+
+  tmp = malloc(sizeof(t_list));
+  tmp->data = strdup(arg);
+  tmp->next = *my_list;
+  *my_list = tmp;
+}
+
+void		show_list(t_list *my_list)
+{
+  t_list	*tmp;
+
+  while (tmp)
+    {
+      my_putstr(tmp->data);
+      my_putchar(32);
+      tmp = tmp->next;
+    }
+}
+
+int		main(int ac, char **av)
+{
+  t_list       	*my_list;
+  int		cpt;
+  
+  my_list = NULL;
+  cpt = 1;
+  if (ac > 1)
+    {
+      while (cpt < ac)
+	{
+	  add_elem_to_list(av[cpt], &my_list);
+	  cpt++;
+	}
+      show_list(my_list);
+      my_putchar(10);
+    }
+  else
+    my_putchar(10);
+  return (0);
+}
